@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>ngBiscuit Demo</title>
+</head>
+<body ng-controller="demoController" ng-cloak>
+<pre>
+
+        cookieStore.put("test0", "Hello world!");
+        cookieStore.put("test1", "Unicode test: \u00E0\u00E8\u00EC\u00F2\u00F9", {end: Infinity});
+        cookieStore.put("test2", "Hello world!", {end: new Date(2020, 5, 12)});
+        cookieStore.put("test3", "Hello world!", {end: new Date(2027, 2, 3), path: "/blog"});
+        cookieStore.put("test4", "Hello world!", {end: "Sun, 06 Nov 2022 21:43:15 GMT"});
+        cookieStore.put("test5", "Hello world!", {end: "Tue, 06 Dec 2022 13:11:07 GMT", path: "/home"});
+        cookieStore.put("test6", "Hello world!", {end: 150});
+        cookieStore.put("test7", "Hello world!", {end: 245, path: "/content"});
+        cookieStore.put("test8", "Hello world!", {domain: "example.com"});
+        cookieStore.put("test9", "Hello world!", {secure: true});
+        cookieStore.put("test1;=", "Safe character test;=", Infinity);
+
+        alert(cookieStore.get("test1"));
+        alert(cookieStore.get("test5"));
+        cookieStore.remove("test1");
+        cookieStore.remove("test5", {path: "/home"});
+        alert(cookieStore.get("test1"));
+        alert(cookieStore.get("test5"));
+        alert(cookieStore.get("unexistingCookie"));
+        alert(cookieStore.get());
+        alert(cookieStore.get("test1;="));
+
+</pre>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+<script src="ng-biscuit.js"></script>
+<script>
+  angular.module('myapp', ['ngBiscuit']).
+      controller('demoController', ['cookieStore', function(cookieStore) {
+        cookieStore.put("test0", "Hello world!");
+        cookieStore.put("test1", "Unicode test: \u00E0\u00E8\u00EC\u00F2\u00F9", {end: Infinity});
+        cookieStore.put("test2", "Hello world!", {end: new Date(2020, 5, 12)});
+        cookieStore.put("test3", "Hello world!", {end: new Date(2027, 2, 3), path: "/blog"});
+        cookieStore.put("test4", "Hello world!", {end: "Sun, 06 Nov 2022 21:43:15 GMT"});
+        cookieStore.put("test5", "Hello world!", {end: "Tue, 06 Dec 2022 13:11:07 GMT", path: "/home"});
+        cookieStore.put("test6", "Hello world!", {end: 150});
+        cookieStore.put("test7", "Hello world!", {end: 245, path: "/content"});
+        cookieStore.put("test8", "Hello world!", {domain: "example.com"});
+        cookieStore.put("test9", "Hello world!", {secure: true});
+        cookieStore.put("test1;=", "Safe character test;=", Infinity);
+
+        alert(cookieStore.get("test1"));
+        alert(cookieStore.get("test5"));
+        cookieStore.remove("test1");
+        cookieStore.remove("test5", {path: "/home"});
+        alert(cookieStore.get("test1"));
+        alert(cookieStore.get("test5"));
+        alert(cookieStore.get("unexistingCookie"));
+        alert(cookieStore.get());
+        alert(cookieStore.get("test1;="));
+      }]);
+</script>
+
+</body>
+</html>
