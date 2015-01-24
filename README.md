@@ -14,6 +14,7 @@ You can download `ng-biscuit` manually or install it via [bower](http://bower.io
 bower install ng-biscuit
 ```
 
+See more information on [ng-biscuit site](http://stevermeister.github.io/ng-biscuit/)
 
 
 
