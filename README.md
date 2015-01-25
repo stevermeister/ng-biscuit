@@ -6,6 +6,8 @@ ng-biscuit
 
 > AngularJS cookies service to deal with options like domain, path ...
 
+> Basicaly solution for this [issue](https://github.com/angular/angular.js/issues/950)
+
 ## Install
 
 You can download `ng-biscuit` manually or install it via [bower](http://bower.io):
