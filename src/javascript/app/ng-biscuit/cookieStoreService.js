@@ -17,7 +17,7 @@ angular.module('ngBiscuit').
 
       get: function(key) {
         var value = $document[0].cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1");
-        return decodeURIComponent(value) || null;
+        return decodeValue(value) || undefined;
       },
 
       /**
