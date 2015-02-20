@@ -5,11 +5,19 @@ angular.module('ngBiscuit').
       return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test($document[0].cookie);
     }
 
+    function encodeValue(value) {
+      return encodeURIComponent(JSON.stringify(value));
+    }
+
+    function decodeValue(value) {
+      return JSON.parse(decodeURIComponent(value))
+    }
+
     return {
 
       get: function(key) {
         var value = $document[0].cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1");
-        return decodeURIComponent(value) || null;
+        return decodeValue(value) || undefined;
       },
 
       /**
@@ -41,7 +49,7 @@ angular.module('ngBiscuit').
               break;
           }
         }
-        $document[0].cookie = encodeURIComponent(key) + "=" + encodeURIComponent(value)
+        $document[0].cookie = encodeURIComponent(key) + "=" + encodeValue(value)
           + expires
           + (domain ? "; domain=" + domain : "")
           + (path ? "; path=" + path : "")
