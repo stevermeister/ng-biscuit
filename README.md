@@ -1,5 +1,8 @@
-ng-biscuit
+ng-biscuit (deprecated)
 ==========
+
+Seens Angular team finaly [fixed](https://github.com/angular/angular.js/commit/92c366d205da36ec26502aded23db71a6473dad7) cookie module there is no need in this plugin. Probably only for old verions of AngularJS.
+
 
  plugin with possibility to set 
 
